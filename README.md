@@ -13,3 +13,22 @@ For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
 
+## How to Build
+
+- Prepare
+
+```sh
+# Protobuf compiler
+% brew intall protobuf
+# Protobuf compiler plugin for Dart
+% flutter pub global activate protoc_plugin
+```
+
+- Generate Dart protobuf files
+
+> **Note**: Ensure an executable `dart` is available in `PATH`
+
+```sh
+% cd proto
+% protoc --dart_out=../lib/proto *.proto --plugin=$HOME/.pub-cache/bin/protoc-gen-dart
+```
