@@ -7,6 +7,7 @@ import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler;
 import io.flutter.plugin.common.MethodChannel.Result;
+import pigeon.Pigeon.Person;
 
 /** PigeonProtoPlugin */
 public class PigeonProtoPlugin implements FlutterPlugin, MethodCallHandler {
@@ -24,8 +25,10 @@ public class PigeonProtoPlugin implements FlutterPlugin, MethodCallHandler {
 
   @Override
   public void onMethodCall(@NonNull MethodCall call, @NonNull Result result) {
-    if (call.method.equals("getPlatformVersion")) {
-      result.success("Android " + android.os.Build.VERSION.RELEASE);
+    if (call.method.equals("getPerson")) {
+      Person person = Person.newBuilder()
+              .setName("me").setId(1).setEmail("me@email.com").setPhone("112").build();
+      result.success(person.toByteArray());
     } else {
       result.notImplemented();
     }
