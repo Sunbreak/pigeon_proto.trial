@@ -2,10 +2,16 @@ PODS:
   - Flutter (1.0.0)
   - pigeon_proto (0.0.1):
     - Flutter
+    - Protobuf
+  - Protobuf (3.20.0)
 
 DEPENDENCIES:
   - Flutter (from `Flutter`)
   - pigeon_proto (from `.symlinks/plugins/pigeon_proto/ios`)
+
+SPEC REPOS:
+  trunk:
+    - Protobuf
 
 EXTERNAL SOURCES:
   Flutter:
@@ -15,7 +21,8 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Flutter: 50d75fe2f02b26cc09d224853bb45737f8b3214a
-  pigeon_proto: c28a329cc9b5f80eddea837265173079f4dcf043
+  pigeon_proto: 18abe88c3a820e9eff0373aaaa6b912ed1d7cabb
+  Protobuf: 66e2f3b26a35e4cc379831f4ced538274ee4b923
 
 PODFILE CHECKSUM: 8e679eca47255a8ca8067c4c67aab20e64cb974d
 

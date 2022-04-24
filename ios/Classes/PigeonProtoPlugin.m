@@ -1,4 +1,5 @@
 #import "PigeonProtoPlugin.h"
+#import "Person.pbobjc.h"
 
 @implementation PigeonProtoPlugin
 + (void)registerWithRegistrar:(NSObject<FlutterPluginRegistrar>*)registrar {
@@ -10,8 +11,13 @@
 }
 
 - (void)handleMethodCall:(FlutterMethodCall*)call result:(FlutterResult)result {
-  if ([@"getPlatformVersion" isEqualToString:call.method]) {
-    result([@"iOS " stringByAppendingString:[[UIDevice currentDevice] systemVersion]]);
+  if ([@"getPerson" isEqualToString:call.method]) {
+    PigeonPerson *person = [[PigeonPerson alloc] init];
+    person.name = @"me";
+    person.id_p = 1;
+    person.email = @"me@email.com";
+    person.phone = @"112";
+    result(person.data);
   } else {
     result(FlutterMethodNotImplemented);
   }

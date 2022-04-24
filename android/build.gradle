@@ -9,6 +9,7 @@ buildscript {
 
     dependencies {
         classpath 'com.android.tools.build:gradle:4.1.0'
+        classpath 'com.google.protobuf:protobuf-gradle-plugin:0.8.18'
     }
 }
 
@@ -20,6 +21,7 @@ rootProject.allprojects {
 }
 
 apply plugin: 'com.android.library'
+apply plugin: 'com.google.protobuf'
 
 android {
     compileSdkVersion 30
@@ -29,7 +31,40 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
+    sourceSets {
+        main {
+            proto {
+                srcDir "$projectDir/../proto"
+            }
+        }
+    }
+
     defaultConfig {
         minSdkVersion 16
+    }
+}
+
+import org.apache.tools.ant.taskdefs.condition.Os
+
+// Compatible with macOS on Apple Silicon
+def archSuffix = Os.isFamily(Os.FAMILY_MAC) ? ':osx-x86_64' : ''
+def protobufVer = "3.20.1"
+
+dependencies {
+    implementation "com.google.protobuf:protobuf-javalite:$protobufVer"
+}
+
+protobuf {
+    protoc {
+        artifact = "com.google.protobuf:protoc:${protobufVer}${archSuffix}"
+    }
+    generateProtoTasks {
+        all().each { task ->
+            task.builtins {
+                java {
+                    option 'lite'
+                }
+            }
+        }
     }
 }
