@@ -1,6 +1,8 @@
 syntax = "proto3";
 package pigeon;
 
+option java_outer_classname = "Pigeon";
+
 message Person {
     string name = 1;
     int32 id = 2;

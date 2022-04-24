@@ -32,3 +32,13 @@ samples, guidance on mobile development, and a full API reference.
 % cd proto
 % protoc --dart_out=../lib/proto *.proto --plugin=$HOME/.pub-cache/bin/protoc-gen-dart
 ```
+
+- Generate Java lite protobuf files
+
+> **Note**: `generate*Proto` tasks would run automatically during project build.
+> Generated Java lite files locate in `build` instead of `src` directory
+
+```sh
+% cd example/android
+% ./gradlew generateProto
+```
