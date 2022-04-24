@@ -42,3 +42,10 @@ samples, guidance on mobile development, and a full API reference.
 % cd example/android
 % ./gradlew generateProto
 ```
+
+- Generate Objective-C protobuf files
+
+```sh
+% cd proto
+% protoc --objc_out=../ios/Classes *.proto
+```
