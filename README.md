@@ -35,12 +35,21 @@ samples, guidance on mobile development, and a full API reference.
 
 - Generate Java lite protobuf files
 
+1. Auto generation
+
 > **Note**: `generate*Proto` tasks would run automatically during project build.
 > Generated Java lite files locate in `build` instead of `src` directory
 
 ```sh
 % cd example/android
-% ./gradlew generateProto
+% ./gradlew generateDebugProto
+```
+
+2. Manual generation
+
+```sh
+% cd proto
+% protoc --java_out=lite:"../android/src/main/java" *.proto
 ```
 
 - Generate Objective-C protobuf files
