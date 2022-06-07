@@ -52,6 +52,16 @@ samples, guidance on mobile development, and a full API reference.
 % protoc --java_out=lite:"../android/src/main/java" *.proto
 ```
 
+> **Note**: According to [main/java/lite.md](https://github.com/protocolbuffers/protobuf/blob/main/java/lite.md) and [javalite/java/lite.md](https://github.com/protocolbuffers/protobuf/blob/javalite/java/lite.md), `protoc` 3.0.0-3.7.1 support old version of Java Lite Runtime
+>
+> ```sh
+> % protoc3.7.1 --plugin=protoc-gen-javalite=PATH_TO_JAVALITE --javalite_out="../android/src/main/java" *.proto
+> ```
+> 
+> protoc3.7.1: https://github.com/protocolbuffers/protobuf/releases/tag/v3.7.1
+> 
+> protoc-gen-javalite: https://mvnrepository.com/artifact/com.google.protobuf/protoc-gen-javalite/3.0.0
+
 - Generate Objective-C protobuf files
 
 ```sh
